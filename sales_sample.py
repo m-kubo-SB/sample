@@ -2,7 +2,6 @@ import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
-import japanize_matplotlib
 
 st.title("販売チャネル別　営業利益シュミレーションサンプル！")
 #日本語フォント設定
@@ -98,3 +97,4 @@ st.write({
 
 
 })
+
