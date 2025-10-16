@@ -6,7 +6,7 @@ import matplotlib.font_manager as fm
 
 st.title("販売チャネル別　営業利益シュミレーションサンプル！")
 #日本語フォント設定
-font_path = "./sample/fonts/ipaexg.ttf"
+font_path = "fonts/ipaexg.ttf"
 fontprop = fm.FontProperties(fname=font_path)
 
 # -----------------------------
