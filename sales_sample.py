@@ -2,11 +2,12 @@ import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
-import japanize_matplotlib
+import matplotlib.font_manager as fm
 
 st.title("販売チャネル別　営業利益シュミレーションサンプル！")
 #日本語フォント設定
-plt.rcParams['font.family'] = 'MS Gothic'
+font_path = "./sample/fonts/ipaexg.ttf"
+fontprop = fm.FontProperties(fname=font_path)
 
 # -----------------------------
 # サイドバーでパラメータ設定
@@ -55,19 +56,22 @@ profit_A   = profit(S, r_A_eff, F_A)
 # 可視化
 # -----------------------------
 fig, ax= plt.subplots(figsize=(10,6))
+
 ax.plot(S, profit_eticket, label="公式サイト", linewidth=2)
 ax.plot(S, profit_A, label="other", linestyle="--", linewidth=2)
 
 ax.axhline(0, color="black", linewidth=0.8)  # 利益ゼロライン
-ax.set_xlabel("売上 (M円)")
-ax.set_ylabel("営業利益 (M円)")
-ax.set_title("販売チャネル別 営業利益シミュレーション（年間）")
+ax.set_xlabel("売上 (M円)", fontproperties=fontprop)
+ax.set_ylabel("営業利益 (M円)", fontproperties=fontprop)
+ax.set_title("販売チャネル別 営業利益シミュレーション（年間）", fontproperties=fontprop)
 ax.legend()
 ax.grid(True)
 # 軸のフォーマット適用
 ###ax = plt.gca()
 ax.xaxis.set_major_formatter(formatter)
 ax.yaxis.set_major_formatter(formatter)
+#フォント適用
+ax.legend(prop=fontprop)
 
 st.pyplot(fig)
 
