@@ -2,6 +2,7 @@ import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
+import japanize_matplotlib
 
 st.title("販売チャネル別　営業利益シュミレーションサンプル！")
 #日本語フォント設定
@@ -20,7 +21,7 @@ F_eticket = (PG_eticket + SB_eticket) * 12
 # other
 r_A1 = st.sidebar.number_input("直販手数料率", value=0.15, step=0.01, format="%.2f")  # 手数料率直販
 r_A2 = st.sidebar.number_input("外販手数料率", value=0.08, step=0.01, format="%.2f")    # 手数料率外販
-r_tyokuhan = st.sidebar.slider("売上比率（直販）", 0.00, 1.00, 0.60)
+r_tyokuhan = st.sidebar.slider("売上比率（直販を指定）", 0.00, 1.00, 0.60)
 #r_tyokuhan, r_gaihan = 0.6, 0.4  # 直販：外販　売上比率
 F_A_month  = st.sidebar.number_input("外部固定費(円)/月", value=500_000, step=10_000)  # 固定費 50万円
 F_A = F_A_month * 12
